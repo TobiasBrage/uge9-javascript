@@ -67,6 +67,7 @@ img {
     border-bottom-left-radius:15px;
     border-bottom-right-radius:15px;
     padding:0 0 30px 0;
+    margin:0 0 40px 0;
 }
 
 #weekDayList {
@@ -86,15 +87,10 @@ img {
     font-family:UbuntuBolder;
 }
 
-
-
-
-
-
 #monthDayList {
     width:420px;
     float:left;
-    margin:20px 0 0 14px;
+    margin:10px 0 0 14px;
     min-height:10px;
     list-style:none;
     font-size:18px;
@@ -103,7 +99,9 @@ img {
 .monthDayName {
     width:60px;
     text-align: center;
-    color:#555;
+    color:#777;
     float:left;
     font-family:UbuntuBolder;
+    min-height:21px;
+    margin:20px 0 0 0;
 }
