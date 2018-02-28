@@ -1,11 +1,11 @@
 @font-face {
     font-family: Ubuntu;
-    src: url(Ubuntu-R.ttf);
+    src: url(../font/Ubuntu-R.ttf);
 }
 
 @font-face {
     font-family: UbuntuBolder;
-    src: url(Ubuntu-B.ttf);
+    src: url(../font/Ubuntu-B.ttf);
 }
 
 * {
@@ -66,7 +66,7 @@ img {
     background-color:#ffffff;
     border-bottom-left-radius:15px;
     border-bottom-right-radius:15px;
-    padding:0 0 30px 0;
+    padding:0 0 40px 0;
     margin:0 0 40px 0;
 }
 
@@ -90,7 +90,7 @@ img {
 #monthDayList {
     width:420px;
     float:left;
-    margin:10px 0 0 14px;
+    margin:0px 0 0 14px;
     min-height:10px;
     list-style:none;
     font-size:18px;
@@ -98,10 +98,34 @@ img {
 
 .monthDayName {
     width:60px;
-    text-align: center;
-    color:#777;
     float:left;
+    min-height:40px;
+    margin:10px 0 0 0;
+}
+
+#calendarToday {
+    width:20px;
+    height:20px;
+    float:left;
+    background-color:#e76a6a;
+    color:#fff;
+    text-align:center;
+    padding:10px;
+    border-radius:20px;
+    margin:0 0 0 10px;
+    font-size:18px;
     font-family:UbuntuBolder;
-    min-height:21px;
-    margin:20px 0 0 0;
+}
+
+.calendarDay {
+    width:20px;
+    height:20px;
+    float:left;
+    color:#999;
+    text-align:center;
+    padding:10px;
+    border-radius:20px;
+    margin:0 0 0 10px;
+    font-size:18px;
+    font-family:UbuntuBolder;
 }
