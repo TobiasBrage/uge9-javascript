@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let monthDateElm = document.querySelector("h1");  
     // init
     let monthName = ['januar', 'februar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december'];
-    let prevCurrentTotal;
-    let nextMonthCounter = 1;
+    let monthDayStart = false;
     let curDate = new Date();
     let curMonthDay = curDate.getDate();
     let curYear = curDate.getFullYear();
@@ -24,44 +23,21 @@ document.addEventListener("DOMContentLoaded", () => {
             testDay = 6;
         else
             testDay = testDay - 1;
-        // previous month days
         if(counterDays == 1 && testDay > 0) {
-            let prevMonth = curMonth;
-            if (prevMonth == 0)
-                prevMonth = 12;
-            let prevMonthDate = new Date(curYear, prevMonth);
-            let prevMonthDays = prevMonthDate.getUTCDate()-testDay;
-            prevCurrentTotal = testDay+monthDays;
-            while(testDay > 0) {
-                prevMonthDays++;
-                monthDayElm.innerHTML += `<li class="monthDayName"><span class="calendarPrevDay">${prevMonthDays}</span></li>`;
-                testDay--;
+            for (lastMonthDay = testDay; lastMonthDay > 0; lastMonthDay--) {
+                let prevMonth = curMonth;
+                if (prevMonth == 0)
+                    prevMonth = 12;
+                let prevMonthDate = new Date(curYear, prevMonth);
+                let prevMonthDays = prevMonthDate.getUTCDate();
+                console.log(prevMonthDays);
+                monthDayElm.innerHTML += `<li class="monthDayName"></li>`;
             }
         }
-        // current month days
         if(curMonthDay == counterDays) {
             monthDayElm.innerHTML += `<li class="monthDayName"><span id="calendarToday">${counterDays}</span></li>`;
         } else {
             monthDayElm.innerHTML += `<li class="monthDayName"><span class="calendarDay">${counterDays}</span></li>`;
-        }
-    }
-    // next month days
-    if(prevCurrentTotal == undefined) {
-        prevCurrentTotal = monthDays;
-    }
-    if(prevCurrentTotal < 35) {
-        let nextMonthDays = 35-prevCurrentTotal;
-        while(nextMonthDays > 0) {
-            monthDayElm.innerHTML += `<li class="monthDayName"><span class="calendarPrevDay">${nextMonthCounter}</span></li>`;
-            nextMonthDays--;
-            nextMonthCounter++;
-        }
-    } else if(prevCurrentTotal > 35) {
-        let nextMonthDays = 42-prevCurrentTotal;
-        while(nextMonthDays > 0) {
-            monthDayElm.innerHTML += `<li class="monthDayName"><span class="calendarPrevDay">${nextMonthCounter}</span></li>`;
-            nextMonthDays--;
-            nextMonthCounter++;
         }
     }
 });
