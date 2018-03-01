@@ -19,23 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // calendar
     for (counterDays = 1; counterDays <= monthDays; counterDays++) {
         let monthWeekDate = new Date(curYear, curMonth, counterDays);
-        let testDay = monthWeekDate.getDay();
-        if(testDay == 0)
-            testDay = 6;
+        let startWeekDay = monthWeekDate.getDay();
+        if(startWeekDay == 0)
+            startWeekDay = 6;
         else
-            testDay = testDay - 1;
+            startWeekDay--;
         // previous month days
-        if(counterDays == 1 && testDay > 0) {
+        if(counterDays == 1 && startWeekDay > 0) {
             let prevMonth = curMonth;
             if (prevMonth == 0)
                 prevMonth = 12;
             let prevMonthDate = new Date(curYear, prevMonth);
-            let prevMonthDays = prevMonthDate.getUTCDate()-testDay;
-            prevCurrentTotal = testDay+monthDays;
-            while(testDay > 0) {
+            let prevMonthDays = prevMonthDate.getUTCDate()-startWeekDay;
+            prevCurrentTotal = startWeekDay+monthDays;
+            while(startWeekDay > 0) {
                 prevMonthDays++;
                 monthDayElm.innerHTML += `<li class="monthDayName"><span class="calendarPrevDay">${prevMonthDays}</span></li>`;
-                testDay--;
+                startWeekDay--;
             }
         }
         // current month days
